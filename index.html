@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Sono:wght@200..800&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BanaCubed</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h2>Todo: make this site actually good</h2>
-    <h1>My Games</h1>
-    <h2><a href="https://banacubed.github.io/Create-Incremental" target="_blank">Create Incremental</a><sub style="opacity: 40%; font-size: 1rem;">technically not <i>my</i> game, but I do own the repository</sub></h2>
-    <h2><a href="https://banacubed.github.io/Theta-Incremental" target="_blank">Theta Incremental</a></h2>
-    <h2><a href="https://banacubed.github.io/GrasshopperConquest" target="_blank">Grasshopper Conqeust</a></h2>
+    <div id="gameBoxContainer" data-component="carousel">
+        <div class="gameBoxContainer" id="gameBoxes">
+            <div class="gameBox" id="ci">
+                <div class="glassBox">
+                    <div class="blur"></div>
+                    <a name="note"><h2>Site Under Construction</h2></a>
+                    Don't complaing about the issues
+                </div>
+            </div>
+            <div class="gameBox" id="ci">
+                <div class="glassBox">
+                    <div class="blur"></div>
+                    <a name="create_incremental"><h2>Create Incremental</h2></a>
+                    <a href="https://banacubed.github.io/Create-Incremental" target="_blank">Link</a>
+                    <a href="https://raw.githack.com/BanaCubed/Create-Incremental/dev-pages/index.html" target="_blank">Early Access</a>
+                    <a href="https://banacubed.github.io/CI-Legacy" target="_blank">Legacy Version</a>
+                </div>
+            </div>
+            <div class="gameBox" id="ti">
+                <div class="glassBox">
+                    <div class="blur"></div>
+                    <a name="theta_incremental"><h2>Theta Incremental</h2></a>
+                </div>
+            </div>
+            <div class="gameBox" id="gh">
+                <div class="glassBox">
+                    <div class="blur"></div>
+                    <a name="grasshopper_conquest"><h2>Grasshopper Conquest Incremental</h2></a>
+                </div>
+            </div>
+        </div>
+        <ul id="markers">
+            <li><a href="#note"><span class="sr-only">Note</span></a></li>
+            <li><a href="#create_incremental"><span class="sr-only">Game 1</span></a></li>
+            <li><a href="#theta_incremental"><span class="sr-only">Game 2</span></a></li>
+            <li><a href="#grasshopper_conquest"><span class="sr-only">Game 3</span></a></li>
+        </ul>
+    </div>
 </body>
 </html>
