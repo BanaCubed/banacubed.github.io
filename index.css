@@ -4,8 +4,12 @@
     height: 100vh;
 }
 
-body {
-    background-image: url(public/BGTile.png)
+body>* {
+    background-image: url(public/BGTile.png);
+    background-size: 128px;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Grid lines colour -> 35, 55, 100 */
