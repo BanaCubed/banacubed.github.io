@@ -1,5 +1,5 @@
 :root {
-    background-image: linear-gradient(0deg, rgba(0, 20, 85, 1) 0%, rgba(0, 30, 120, 1) 100%);
+    background-image: linear-gradient(0deg, #001455 0%, #001e78 100%);
     width: 100vw;
     height: 100vh;
 }
@@ -10,9 +10,21 @@
     position: fixed;
     width: 1000vw;
     height: 1000vh;
-    top: -300vh;
-    left: -300vw;
     transform: rotate(-5deg);
+    animation: forwards infinite 10s moveUp;
+    animation-timing-function: linear;
+    image-rendering: crisp-edges;
+}
+
+@keyframes moveUp {
+    0% {
+        top: calc(-800vh + 0px);
+        left: calc(-800vw + 0px);
+    }
+    100% {
+        top: calc(-800vh + 127.51px);
+        left: calc(-800vw + 11.156px);
+    }
 }
 
 /* Grid lines colour -> 35, 55, 100 */
@@ -27,25 +39,18 @@
     border: 2px rgba(255, 255, 255, 0.75) solid;
     border-radius: 15px;
     position: relative;
-    width: min(calc(90vw - 45px), 610px);
-    height: 450px;
+    width: min(calc(calc(100vw - 10vh) - 65px), 610px);
+    height: calc(90vh - 50px);
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.15), inset 16px -24px 200px -82px rgba(255, 255, 255, 0.05);
     top: 50%;
     transform: translate(0, -50%);
     visibility: visible;
     padding-left: 20px;
-    overflow: clip;
-
-    & >.blur {
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        position: absolute;
-        width: min(calc(90vw - 25px), 630px);
-        height: 450px;
-        visibility: visible;
-        z-index: -1;
-        left: 0;
-    }
+    padding-right: 20px;
+    padding-bottom: 20px;
+    overflow-x: clip;
+    overflow-y: scroll;
+    backdrop-filter: blur(10px);
 }
 
 #gh {
@@ -60,7 +65,7 @@
     }
 
     & .glassBox {
-        left: calc(100% - min(calc(90vw - 10px), 645px));
+        left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
     }
 }
 
@@ -73,10 +78,27 @@
 
     & * {
         font-family: "Fira Code";
+        transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0s;
+        text-align: left;
     }
 
     & .glassBox {
         left: calc(10px);
+    }
+
+    & a {
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+        display: block;
+        color: #8d42f5;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    & a:hover:not(:has(h2)) {
+        text-shadow: 5px 0 10px #6602f2, -3px 0px 12px #6602f2;
+        transform: scale(1.05);
     }
 }
 
@@ -94,7 +116,54 @@
     }
 
     & .glassBox {
-        left: calc(100% - min(calc(90vw - 10px), 645px));
+        left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
+    }
+
+    & a {
+        margin-bottom: 12px;
+        text-decoration: none;
+        text-align: left;
+        position: relative;
+        display: block;
+        color: #02f2f2;
+    }
+
+    & a:hover:not(:has(h2)) {
+        text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
+    }
+
+    & a:not(:has(h2))::before {
+        content: "> " attr(href);
+        position: relative;
+        font-size: 0.6em;
+        text-align: left;
+        left: 20px;
+        max-width: 0;
+        width: 0;
+        display: block;
+        position: relative;
+        white-space: nowrap;
+        text-shadow: none !important;
+        top: 32px;
+        color: rgb(134, 152, 188);
+    }
+}
+
+#me {
+    background-image: url(public/BCLogo.svg);
+    background-size: cover;
+    background-position: left;
+    margin-bottom: 20px;
+    border-radius: 20px;
+
+    & * {
+        font-family: "Sono";
+        font-weight: 700;
+        transition-duration: .5s;
+    }
+
+    & .glassBox {
+        left: calc(10px);
     }
 
     & a {
@@ -128,18 +197,18 @@
 }
 
 .gameBox {
-    height: 480px;
-    width: min(90vw, 800px);
+    height: 90vh;
+    width: calc(100vw - 10vh);
     scroll-snap-align: center;
 }
 
 .gameBoxContainer {
-    height: 480px;
-    width: min(90vw, 800px);
+    height: 90vh;
+    width: calc(100vw - 10vh);
     overflow-x: clip;
     overflow-y: scroll;
     position: fixed;
-    top: calc(100% - 250px);
+    top: 50vh;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
@@ -157,7 +226,7 @@
         0%,
         100% {
             background: rgba(0, 40, 170, 1);
-            color: rgba(0, 40, 170, 1);
+            color: transparent;
             box-shadow: 0 0 6px 1px rgba(0, 40, 170, 1);
         }
     }
@@ -201,7 +270,7 @@
         translate: -50% 0;
         
         & li {
-            color: rgba(0, 20, 85, 1);
+            color: transparent;
 
             &:nth-child(1) {
                 --i: 1;
@@ -227,7 +296,7 @@
             background: rgba(0, 20, 85, 1);
             border-radius: 50%;
             position: relative;
-            top: 0.3em;
+            top: 0em;
             right: 1em;
             box-shadow: 0 0 6px 0px rgba(0, 20, 85, 1);
         }
