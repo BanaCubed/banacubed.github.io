@@ -200,6 +200,7 @@
     height: 90vh;
     width: calc(100vw - 10vh);
     scroll-snap-align: center;
+    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
 }
 
 .gameBoxContainer {
@@ -212,9 +213,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
     scroll-snap-type: y mandatory;
-    background-color: #0f0f0f;
+    background-color: rgba(0, 20, 85, 0.8);
+    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
 }
 
 ::-webkit-scrollbar {
