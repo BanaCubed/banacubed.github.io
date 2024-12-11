@@ -3,22 +3,23 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: BanaCubed
-subtitle: ''
-description: ''
+title: Iotan Ramblings
+subtitle: "BanaCubed's Blog"
+description: 'Personal blog containing general updates, and occasional lore for something...'
 keywords:
 author: BanaCubed
 language: en
-timezone: ''
+timezone: 'Pacific/Auckland'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://banacubed.github.io/blog
+root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -50,10 +51,17 @@ highlight:
   tab_replace: ''
   wrap: true
   hljs: false
+  enable: true
 prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+  enable: false
+
+codeblock:
+  theme:
+    light: monokai
+    dark: monokai
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -101,4 +109,10 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/BanaCubed/blog
+  branch: master
+
+symbols_count_time:
+  awl: 4
+  wpm: 270

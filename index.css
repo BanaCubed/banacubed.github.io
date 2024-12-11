@@ -263,7 +263,7 @@
                 display: block;
                 width: 0.5em;
                 aspect-ratio: 1;
-                background: rgba(0, 20, 85, 1);
+                background: #001455;
                 border-radius: 50%;
                 position: relative;
                 top: 0em;
@@ -285,7 +285,7 @@
         }
         
         .activeMarker a {
-            background: rgba(0, 40, 170, 1) !important;
+            background: #0028aa !important;
             color: transparent;
             box-shadow: 0 0 6px 3px rgba(0, 20, 85, 1) !important;
             transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);

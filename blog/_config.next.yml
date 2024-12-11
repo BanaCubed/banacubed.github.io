@@ -1,2 +1,78 @@
 darkmode: true
 scheme: gemini
+
+custom_file_path:
+  style: source/_data/styles.styl
+
+avatar:
+  url: https://galaxy.click/pfp/large/4204-1710481540079.webp
+  rounded: true
+  rotated: false
+
+creative_commons:
+  license: by-nc-sa
+  size: small
+  sidebar: true
+  post: false
+
+sidebar:
+  position: left
+  display: always
+  padding: 18
+  offset: 12
+
+codeblock:
+  theme:
+    light: monokai
+    dark: monokai
+
+social:
+  GitHub: https://github.com/banacubed || fab fa-github
+  E-Mail: mailto:banacubed@gmail.com || fa fa-envelope
+  YouTube: https://youtube.com/@banacubed || fab fa-youtube
+  Discord: https://discord.gg/wt5XyPRtte || fab fa-discord
+
+social_icons:
+  icons_only: true
+  transition: true
+
+site_state: true
+
+links_settings:
+  icon: fa fa-globe
+  layout: block
+
+links:
+  Homepage: https://banacubed.github.io
+
+toc:
+  enable: true
+  number: true
+  wrap: true
+
+menu:
+  Home: / || fa fa-bell
+  Blog: /categories/blog/ || fa fa-book
+  Lore: /categories/lore/ || fa fa-inbox
+  Archive: /archives/ || fa fa-box-archive
+
+footer:
+  icon: 
+    animated: true
+    color: "#001455"
+
+reading_progress:
+  enable: true
+  start_at: left
+  position: top
+  color: "#0028aa"
+  height: 4px
+  reversed: false
+
+theme_color:
+  light: "#f00"
+  dark: "#001455"
+
+menu_settings:
+  icons: true
+  badges: true
