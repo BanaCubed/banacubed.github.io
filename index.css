@@ -6,292 +6,307 @@
     scroll-behavior: smooth;
 }
 
-@layer background {
-    :root {
-        background-image: linear-gradient(0deg, #001455 0%, #001e78 100%);
-        width: 100vw;
-        height: 100vh;
+:root {
+    background-image: linear-gradient(0deg, #001455 0%, #001e78 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+#iframeNotice {
+    z-index: 12345;
+    background: orange;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    border-radius: 20px;
+    padding: 10px 10px 10px 60px;
+    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
+    translate: 0 -100px;
+
+    & a > svg {
+        position: absolute;
+        left: 10px;
+        height: 40px;
+        width: 40px;
     }
 
-    #Jeremy {
-        background-image: url(public/BGTile.png);
-        background-size: 128px;
-        position: fixed;
-        width: 1000vw;
-        height: 1000vh;
-        transform: rotate(-5deg);
-        animation: forwards infinite 10s moveUp;
-        animation-timing-function: linear;
-        image-rendering: crisp-edges;
+    & a > span {
+        font-family: "Sono";
+        text-decoration: none !important;
+        font-weight: bold;
+    }
+}
+
+#Jeremy {
+    background-image: url(public/BGTile.png);
+    background-size: 128px;
+    position: fixed;
+    width: 1000vw;
+    height: 1000vh;
+    transform: rotate(-5deg);
+    animation: forwards infinite 10s moveUp;
+    animation-timing-function: linear;
+    image-rendering: crisp-edges;
+}
+
+@keyframes moveUp {
+    0% {
+        top: calc(-800vh + 0px);
+        left: calc(-800vw + 0px);
+    }
+    100% {
+        top: calc(-800vh + 127.51px);
+        left: calc(-800vw + 11.156px);
+    }
+}
+
+.gameBoxContainer {
+    height: 90vh;
+    width: calc(100vw - 10vh);
+    overflow-x: clip;
+    overflow-y: scroll;
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    scroll-snap-type: y mandatory;
+    background-color: rgba(0, 20, 85, 0);
+    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
+    backdrop-filter: blur(10px);
+    scroll-behavior: smooth !important;
+}
+
+#me {
+    background-image: url(public/BCLogo.svg);
+    background-size: cover;
+    background-position: right;
+    margin-bottom: 15vh;
+    border-radius: 20px;
+
+    & * {
+        font-family: "Comfortaa", serif;
+        font-weight: 700;
+        transition-duration: .5s;
     }
 
-    @keyframes moveUp {
-        0% {
-            top: calc(-800vh + 0px);
-            left: calc(-800vw + 0px);
-        }
-        100% {
-            top: calc(-800vh + 127.51px);
-            left: calc(-800vw + 11.156px);
-        }
-    }
-} /* @layer background */
-
-@layer carousel {
-    .gameBoxContainer {
-        height: 90vh;
-        width: calc(100vw - 10vh);
-        overflow-x: clip;
-        overflow-y: scroll;
-        position: fixed;
-        top: 50vh;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 20px;
-        scroll-snap-type: y mandatory;
-        background-color: rgba(0, 20, 85, 0);
-        box-shadow: 0 0 12px rgba(2, 5, 22, 1);
-        backdrop-filter: blur(10px);
-        scroll-behavior: smooth !important;
+    & .glassBox {
+        left: calc(10px);
     }
 
-    @layer sections {
-        #me {
-            background-image: url(public/BCLogo.svg);
-            background-size: cover;
-            background-position: right;
-            margin-bottom: 15vh;
-            border-radius: 20px;
-        
-            & * {
-                font-family: "Comfortaa", serif;
-                font-weight: 700;
-                transition-duration: .5s;
-            }
-        
-            & .glassBox {
-                left: calc(10px);
-            }
-        
-            & a {
-                margin-bottom: 12px;
-                text-decoration: none;
-                text-align: left;
-                position: relative;
-                display: block;
-                color: #02f2f2 !important;
-            }
-        
-            & a:hover:not(:has(h2)) {
-                text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
-            }
-        
-            & a:not(:has(h2))::before {
-                content: "[" attr(href) "]";
-                position: relative;
-                font-size: 0.6em;
-                text-align: left;
-                left: 0px;
-                max-width: 0;
-                width: 0;
-                display: block;
-                position: relative;
-                white-space: nowrap;
-                text-shadow: none !important;
-                top: 28px;
-                color: rgb(134, 152, 188);
-            }
-        }
+    & a {
+        margin-bottom: 12px;
+        text-decoration: none;
+        text-align: left;
+        position: relative;
+        display: block;
+        color: #02f2f2 !important;
+    }
 
-        #ci {
-            background-image: url(public/CILogo.svg);
-            background-size: cover;
-            background-position: left;
-            margin-bottom: 15vh;
-            border-radius: 20px;
-        
-            & * {
-                font-family: "Sono", monospace;
-                font-weight: 700;
-                transition-duration: .5s;
-            }
-        
-            & .glassBox {
-                left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
-            }
-        
-            & a {
-                margin-bottom: 12px;
-                text-decoration: none;
-                text-align: left;
-                position: relative;
-                display: block;
-                color: #02f2f2 !important;
-            }
-        
-            & a:hover:not(:has(h2)) {
-                text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
-            }
-        
-            & a:not(:has(h2))::before {
-                content: "> " attr(href);
-                position: relative;
-                font-size: 0.6em;
-                text-align: left;
-                left: 20px;
-                max-width: 0;
-                width: 0;
-                display: block;
-                position: relative;
-                white-space: nowrap;
-                text-shadow: none !important;
-                top: 32px;
-                color: rgb(134, 152, 188);
-            }
-        }
+    & a:hover:not(:has(h2)) {
+        text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
+    }
 
-        #ti {
-            background-image: url(public/TILogo.svg);
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 15vh;
-            border-radius: 20px;
-        
-            & * {
-                font-family: "Fira Code", monospace;
-                transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0s;
-                text-align: left;
-            }
-        
-            & .glassBox {
-                left: calc(10px);
-            }
-        
-            & a {
-                text-decoration: none;
-                text-align: center;
-                position: relative;
-                display: block;
-                color: #8d42f5 !important;
-                font-weight: bold;
-                font-size: 20px;
-            }
-        
-            & a:hover:not(:has(h2)) {
-                text-shadow: 5px 0 10px #6602f2, -3px 0px 12px #6602f2;
-                transform: scale(1.05);
-            }
-        }
+    & a:not(:has(h2))::before {
+        content: "[" attr(href) "]";
+        position: relative;
+        font-size: 0.6em;
+        text-align: left;
+        left: 0px;
+        max-width: 0;
+        width: 0;
+        display: block;
+        position: relative;
+        white-space: nowrap;
+        text-shadow: none !important;
+        top: 28px;
+        color: rgb(134, 152, 188);
+    }
+}
 
-        #gh {
-            background-image: url(public/GHLogo.webp);
-            background-size: cover;
-            background-position: center;
-            /* margin-bottom: 15vh; */
-            border-radius: 20px;
-        
-            & * {
-                font-family: "Iconsolata", monospace;
-            }
-        
-            & .glassBox {
-                left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
-            }
-        }
+#ci {
+    background-image: url(public/CILogo.svg);
+    background-size: cover;
+    background-position: left;
+    margin-bottom: 15vh;
+    border-radius: 20px;
 
-        @layer general {
-            .gameBox {
-                height: 90vh;
-                width: calc(100vw - 10vh);
-                scroll-snap-align: center;
-                box-shadow: 0 0 12px rgba(2, 5, 22, 1);
-            }
+    & * {
+        font-family: "Sono", monospace;
+        font-weight: 700;
+        transition-duration: .5s;
+    }
 
-            .glassBox {
-                background-color: rgba(0, 0, 0, 0.25);
-                border: 2px rgba(255, 255, 255, 0.75) solid;
-                border-radius: 15px;
-                position: relative;
-                width: min(calc(calc(100vw - 10vh) - 65px), 610px);
-                height: calc(90vh - 50px);
-                box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.35), inset 16px -24px 2000px -82px rgba(255, 255, 255, 0.45);
-                top: 50%;
-                transform: translate(0, -50%);
-                visibility: visible;
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-bottom: 20px;
-                overflow-x: clip;
-                overflow-y: scroll;
-                backdrop-filter: blur(10px);
-            }
-        } /* @layer general */
-    } /* @layer sections */
+    & .glassBox {
+        left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
+    }
+
+    & a {
+        margin-bottom: 12px;
+        text-decoration: none;
+        text-align: left;
+        position: relative;
+        display: block;
+        color: #02f2f2 !important;
+    }
+
+    & a:hover:not(:has(h2)) {
+        text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
+    }
+
+    & a:not(:has(h2))::before {
+        content: "> " attr(href);
+        position: relative;
+        font-size: 0.6em;
+        text-align: left;
+        left: 20px;
+        max-width: 0;
+        width: 0;
+        display: block;
+        position: relative;
+        white-space: nowrap;
+        text-shadow: none !important;
+        top: 32px;
+        color: rgb(134, 152, 188);
+    }
+}
+
+#ti {
+    background-image: url(public/TILogo.svg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15vh;
+    border-radius: 20px;
+
+    & * {
+        font-family: "Fira Code", monospace;
+        transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0s;
+        text-align: left;
+    }
+
+    & .glassBox {
+        left: calc(10px);
+    }
+
+    & a {
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+        display: block;
+        color: #8d42f5 !important;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    & a:hover:not(:has(h2)) {
+        text-shadow: 5px 0 10px #6602f2, -3px 0px 12px #6602f2;
+        transform: scale(1.05);
+    }
+}
+
+#gh {
+    background-image: url(public/GHLogo.webp);
+    background-size: cover;
+    background-position: center;
+    /* margin-bottom: 15vh; */
+    border-radius: 20px;
+
+    & * {
+        font-family: "Iconsolata", monospace;
+    }
+
+    & .glassBox {
+        left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
+    }
+}
+
+.gameBox {
+    height: 90vh;
+    width: calc(100vw - 10vh);
+    scroll-snap-align: center;
+    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
+}
+
+.glassBox {
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 2px rgba(255, 255, 255, 0.75) solid;
+    border-radius: 15px;
+    position: relative;
+    width: min(calc(calc(100vw - 10vh) - 65px), 610px);
+    height: calc(90vh - 50px);
+    box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.35), inset 16px -24px 2000px -82px rgba(255, 255, 255, 0.45);
+    top: 50%;
+    transform: translate(0, -50%);
+    visibility: visible;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    overflow-x: clip;
+    overflow-y: scroll;
+    backdrop-filter: blur(10px);
+}
+
+#markers {
+    display: flex;
+    flex-direction: row;
+    gap: 0.25em;
+    font-size: 2em;
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    translate: -50% 0;
     
-    @layer markers {
-        #markers {
-            display: flex;
-            flex-direction: row;
-            gap: 0.25em;
-            font-size: 2em;
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            translate: -50% 0;
-            
-            & li {
-                color: transparent !important;
-    
-                &:nth-child(1) {
-                    --i: 1;
-                }
-                &:nth-child(2) {
-                    --i: 2;
-                }
-                &:nth-child(3) {
-                    --i: 3;
-                }
-                &:nth-child(4) {
-                    --i: 4;
-                }
-                &:nth-child(5) {
-                    --i: 5;
-                }
-            }
-    
-            & a {
-                display: block;
-                width: 0.5em;
-                aspect-ratio: 1;
-                background: #001455;
-                border-radius: 50%;
-                position: relative;
-                top: 0em;
-                right: 1em;
-                box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.6);
-            }
-        }
+    & li {
+        color: transparent !important;
 
-        #markers a>span {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
+        &:nth-child(1) {
+            --i: 1;
         }
-        
-        .activeMarker a {
-            background: #0028aa !important;
-            color: transparent;
-            box-shadow: 0 0 6px 3px rgba(0, 20, 85, 1) !important;
-            transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+        &:nth-child(2) {
+            --i: 2;
         }
-    } /* @layer markers */
-} /* @layer carousel */
+        &:nth-child(3) {
+            --i: 3;
+        }
+        &:nth-child(4) {
+            --i: 4;
+        }
+        &:nth-child(5) {
+            --i: 5;
+        }
+    }
+
+    & a {
+        display: block;
+        width: 0.5em;
+        aspect-ratio: 1;
+        background: #001455;
+        border-radius: 50%;
+        position: relative;
+        top: 0em;
+        right: 1em;
+        box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.6);
+    }
+}
+
+#markers a>span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.activeMarker a {
+    background: #0028aa !important;
+    color: transparent;
+    box-shadow: 0 0 6px 3px rgba(0, 20, 85, 1) !important;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+}
 
 ::-webkit-scrollbar {
     display: none;

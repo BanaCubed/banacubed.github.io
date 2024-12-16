@@ -10,22 +10,24 @@ Project initialisation complete...
 
 <!-- more -->
 
-Current project status:
+Previous project status:
 
 ```yml Project Status
-TI: v0.3 b1
+TI: v0.2.3
 GH: v0.11
 ```
 
-Ramblings successfully added to projects.
+New project status:
 
 ```yml Project Status
-TI: v0.3 b1
+TI: v0.2.3
 GH: v0.11
 IR: v0.0
 ```
 
-Please await further instructions.
+Awaiting further inputs...
+
+Kicking unauthorised user...
 
 # Logs
 

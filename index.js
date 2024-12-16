@@ -15,3 +15,7 @@ gameBoxes.addEventListener("scroll", (event) => {
         markers.children[index].classList.add('activeMarker');
     }
 });
+
+if (window.top !== window.self) {
+    document.getElementById("iframeNotice").style.setProperty("translate", "0 0px");
+}

@@ -116,3 +116,6 @@ deploy:
 symbols_count_time:
   awl: 4
   wpm: 270
+
+fireworks:
+  enable: false # Not what I thought they were, will probably uninstall
