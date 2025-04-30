@@ -1,338 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Fira+Code:wght@300..700&family=Sono:wght@200..800&display=swap');
-
 * {
-    font-family: "Inconsolata", monospace;
-    color: white;
-    scroll-behavior: smooth;
+	font-family: Sono, monospace;
+	color: white;
+	scroll-behavior: smooth;
+}
+
+a:not(.outlink) {
+	color: aqua;
+}
+
+#outlinks {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.outlink {
+	width: 88px;
+	height: 31px;
+	display: block;
+	transition: scale 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	&:hover {
+		scale: 1.05;
+	}
 }
 
 :root {
-    background-image: linear-gradient(0deg, #001455 0%, #001e78 100%);
-    width: 100vw;
-    height: 100vh;
+	background-image: linear-gradient(0deg, #001455 0%, #001e78 100%);
+	width: 100vw;
+	height: 100vh;
 }
 
-#iframeNotice {
-    z-index: 12345;
-    background: orange;
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    border-radius: 20px;
-    padding: 10px 10px 10px 60px;
-    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
-    translate: 0 -100px;
-
-    & a > svg {
-        position: absolute;
-        left: 10px;
-        height: 40px;
-        width: 40px;
-    }
-
-    & a > span {
-        font-family: "Sono";
-        text-decoration: none !important;
-        font-weight: bold;
-    }
-}
-
-#Jeremy {
-    background-image: url(public/BGTile.png);
-    background-size: 128px;
-    position: fixed;
-    width: 1000vw;
-    height: 1000vh;
-    transform: rotate(-5deg);
-    animation: forwards infinite 10s moveUp;
-    animation-timing-function: linear;
-    image-rendering: crisp-edges;
+#background {
+	background-image: url(public/BGTile.png);
+	background-size: 128px;
+	position: fixed;
+	width: 1000vw;
+	height: 1000vh;
+	transform: rotate(-5deg);
+	animation: forwards infinite 10s moveUp;
+	animation-timing-function: linear;
+	image-rendering: crisp-edges;
 }
 
 @keyframes moveUp {
-    0% {
-        top: calc(-800vh + 0px);
-        left: calc(-800vw + 0px);
-    }
-    100% {
-        top: calc(-800vh + 127.51px);
-        left: calc(-800vw + 11.156px);
-    }
+	0% {
+		top: calc(-800vh + 0px);
+		left: calc(-800vw + 0px);
+	}
+	100% {
+		top: calc(-800vh + 127.51px);
+		left: calc(-800vw + 11.156px);
+	}
 }
 
-.gameBoxContainer {
-    height: 90vh;
-    width: calc(100vw - 10vh);
-    overflow-x: clip;
-    overflow-y: scroll;
-    position: fixed;
-    top: 50vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-    scroll-snap-type: y mandatory;
-    background-color: rgba(0, 20, 85, 0);
-    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
-    backdrop-filter: blur(10px);
-    scroll-behavior: smooth !important;
+#container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: scroll;
 }
 
-#me {
-    background-image: url(public/BCLogo.svg);
-    background-size: cover;
-    background-position: right;
-    margin-bottom: 15vh;
-    border-radius: 20px;
-
-    & * {
-        font-family: "Comfortaa", serif;
-        font-weight: 700;
-        transition-duration: .5s;
-    }
-
-    & .glassBox {
-        left: calc(10px);
-    }
-
-    & a {
-        margin-bottom: 12px;
-        text-decoration: none;
-        text-align: left;
-        position: relative;
-        display: block;
-        color: #02f2f2 !important;
-    }
-
-    & a:hover:not(:has(h2)) {
-        text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
-    }
-
-    & a:not(:has(h2))::before {
-        content: "[" attr(href) "]";
-        position: relative;
-        font-size: 0.6em;
-        text-align: left;
-        left: 0px;
-        max-width: 0;
-        width: 0;
-        display: block;
-        position: relative;
-        white-space: nowrap;
-        text-shadow: none !important;
-        top: 28px;
-        color: rgb(134, 152, 188);
-    }
-}
-
-#ci {
-    background-image: url(public/CILogo.svg);
-    background-size: cover;
-    background-position: left;
-    margin-bottom: 15vh;
-    border-radius: 20px;
-
-    & * {
-        font-family: "Sono", monospace;
-        font-weight: 700;
-        transition-duration: .5s;
-    }
-
-    & .glassBox {
-        left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
-    }
-
-    & a {
-        margin-bottom: 12px;
-        text-decoration: none;
-        text-align: left;
-        position: relative;
-        display: block;
-        color: #02f2f2 !important;
-    }
-
-    & a:hover:not(:has(h2)) {
-        text-shadow: 5px 0 10px #02f2f2, -3px 0px 12px #02f2f2
-    }
-
-    & a:not(:has(h2))::before {
-        content: "> " attr(href);
-        position: relative;
-        font-size: 0.6em;
-        text-align: left;
-        left: 20px;
-        max-width: 0;
-        width: 0;
-        display: block;
-        position: relative;
-        white-space: nowrap;
-        text-shadow: none !important;
-        top: 32px;
-        color: rgb(134, 152, 188);
-    }
-}
-
-#ti {
-    background-image: url(public/TILogo.svg);
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 15vh;
-    border-radius: 20px;
-
-    & * {
-        font-family: "Fira Code", monospace;
-        transition: all 0.3s cubic-bezier(0, 0, 0.2, 1) 0s;
-        text-align: left;
-    }
-
-    & .glassBox {
-        left: calc(10px);
-    }
-
-    & a {
-        text-decoration: none;
-        text-align: center;
-        position: relative;
-        display: block;
-        color: #8d42f5 !important;
-        font-weight: bold;
-        font-size: 20px;
-    }
-
-    & a:hover:not(:has(h2)) {
-        text-shadow: 5px 0 10px #6602f2, -3px 0px 12px #6602f2;
-        transform: scale(1.05);
-    }
-}
-
-#gh {
-    background-image: url(public/GHLogo.webp);
-    background-size: cover;
-    background-position: center;
-    /* margin-bottom: 15vh; */
-    border-radius: 20px;
-
-    & * {
-        font-family: "Iconsolata", monospace;
-    }
-
-    & .glassBox {
-        left: calc(100% - min(calc(calc(100vw - 10vh) - 10px), 665px));
-    }
-}
-
-.gameBox {
-    height: 90vh;
-    width: calc(100vw - 10vh);
-    scroll-snap-align: center;
-    box-shadow: 0 0 12px rgba(2, 5, 22, 1);
+.text {
+	min-height: 90vh;
+	width: calc(100vw - 10vh);
+	max-width: 1080px;
+	overflow-x: clip;
+	position: relative;
+	top: 5vh;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-radius: 20px;
+	background-color: rgba(0, 10, 42, 0.3);
+	box-shadow: 0 0 12px rgba(2, 5, 22, 1);
+	backdrop-filter: blur(10px);
+	padding: 20px;
+	box-sizing: border-box;
+	margin-bottom: 5vh;
 }
 
 .glassBox {
-    background-color: rgba(0, 0, 0, 0.25);
-    border: 2px rgba(255, 255, 255, 0.75) solid;
-    border-radius: 15px;
-    position: relative;
-    width: min(calc(calc(100vw - 10vh) - 65px), 610px);
-    height: calc(90vh - 50px);
-    box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.35), inset 16px -24px 2000px -82px rgba(255, 255, 255, 0.45);
-    top: 50%;
-    transform: translate(0, -50%);
-    visibility: visible;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    overflow-x: clip;
-    overflow-y: scroll;
-    backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.25);
+	border: 2px rgba(255, 255, 255, 0.75) solid;
+	border-radius: 15px;
+	position: relative;
+	width: min(calc(calc(100vw - 10vh) - 65px), 610px);
+	height: calc(90vh - 50px);
+	box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.35),
+		inset 16px -24px 2000px -82px rgba(255, 255, 255, 0.45);
+	top: 50%;
+	transform: translate(0, -50%);
+	visibility: visible;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	overflow-x: clip;
+	overflow-y: scroll;
+	backdrop-filter: blur(10px);
 }
 
-#markers {
-    display: flex;
-    flex-direction: row;
-    gap: 0.25em;
-    font-size: 2em;
-    position: absolute;
-    bottom: -0.5rem;
-    left: 50%;
-    translate: -50% 0;
-    
-    & li {
-        color: transparent !important;
-
-        &:nth-child(1) {
-            --i: 1;
-        }
-        &:nth-child(2) {
-            --i: 2;
-        }
-        &:nth-child(3) {
-            --i: 3;
-        }
-        &:nth-child(4) {
-            --i: 4;
-        }
-        &:nth-child(5) {
-            --i: 5;
-        }
-    }
-
-    & a {
-        display: block;
-        width: 0.5em;
-        aspect-ratio: 1;
-        background: #001455;
-        border-radius: 50%;
-        position: relative;
-        top: 0em;
-        right: 1em;
-        box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.6);
-    }
+h1 {
+	margin: 5px;
 }
-
-#markers a>span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-}
-
-.activeMarker a {
-    background: #0028aa !important;
-    color: transparent;
-    box-shadow: 0 0 6px 3px rgba(0, 20, 85, 1) !important;
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-/* @supports(animation-timeline: view()) { Waiting on baselin availability for this
-    @keyframes colorize-dot {
-        0%,
-        100% {
-            background: rgba(0, 40, 170, 1);
-            color: transparent;
-            box-shadow: 0 0 6px 1px rgba(0, 40, 170, 1);
-        }
-    }
-
-    [data-component="carousel"] {
-        timeline-scope: --carousel;
-    
-        #gameBoxes {
-            scroll-timeline: --carousel y;
-        }
-    
-        #markers a {
-            animation: colorize-dot linear;
-            animation-timeline: --carousel;
-            animation-range: calc(calc(var(--i) - 1) * 25%) calc(var(--i) * 25% + 1px);
-        }
-    }
-} */
